@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name="Shatter"
+  s.name="shatter"
   s.version = "0.0.1"
   s.author = "Doug Peterson"
   s.email = "dougp757"
