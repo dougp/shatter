@@ -1,0 +1,23 @@
+Shatter modifies method missing in its scope to allow for more convenient access to hash parameters as local variables (actually methods)
+
+#old and verbose
+
+#expecting :email, :password , and :id
+def my_method(params={})
+  raise "No Email" unless params[:email]
+  raise "No Password" unles params[:password]
+  Record.find(params[:id])
+end
+
+#new and awesome
+
+require 'shatter'
+include 'Shatter'
+#expecting :email, :password , and :id
+def my_method(params={})
+  shatter(params) do 
+    raise "No Email" unless email
+    raise "No Password" unless password
+    Record.find(id)
+  end
+end
